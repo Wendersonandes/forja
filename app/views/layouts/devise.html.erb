@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Forja" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Forja">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+      .auth-title {
+        font-family: 'Fraunces', serif;
+        font-optical-sizing: auto;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-sm border-b border-amber-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <%= link_to root_path, class: "auth-title text-2xl font-bold text-amber-900 hover:text-amber-700 transition-colors" do %>
+            Forja
+          <% end %>
+          <div class="flex gap-4">
+            <% if user_signed_in? %>
+              <%= link_to "Sair", destroy_user_session_path, data: { turbo_method: :delete }, class: "text-sm text-slate-700 hover:text-amber-700 transition-colors" %>
+            <% else %>
+              <%= link_to "Entrar", new_user_session_path, class: "text-sm text-slate-700 hover:text-amber-700 transition-colors" unless current_page?(new_user_session_path) %>
+              <%= link_to "Criar conta", new_user_registration_path, class: "text-sm px-4 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-colors" unless current_page?(new_user_registration_path) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8 min-h-[calc(100vh-4rem)]">
+      <div class="w-full max-w-md">
+        <!-- Alert Messages -->
+        <% if notice %>
+          <div class="mb-6 p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-lg" role="alert">
+            <%= notice %>
+          </div>
+        <% end %>
+        <% if alert %>
+          <div class="mb-6 p-4 bg-rose-50 border border-rose-200 text-rose-800 rounded-lg" role="alert">
+            <%= alert %>
+          </div>
+        <% end %>
+
+        <!-- Card Container -->
+        <div class="bg-white rounded-2xl shadow-xl border border-amber-100 p-8 sm:p-10">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-sm text-slate-600">
+      <p>&copy; <%= Time.current.year %> Forja. Onde o aprendizado acontece de verdade.</p>
+    </footer>
+  </body>
+</html>

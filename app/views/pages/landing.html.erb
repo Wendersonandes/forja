@@ -1,0 +1,221 @@
+<% content_for :title, "Forja — Onde o aprendizado acontece de verdade" %>
+
+<% content_for :head do %>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,800;1,9..144,300&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <%= stylesheet_link_tag "landing", "data-turbo-track": "reload" %>
+<% end %>
+
+<div class="landing-page">
+  <!-- Navigation -->
+  <nav class="landing-nav">
+    <div class="landing-logo">Forja</div>
+    <%= link_to "Começar agora", "#cta", class: "landing-nav-cta" %>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="landing-hero">
+    <div class="landing-hero-content">
+      <span class="landing-hero-label">Aprendizado presencial</span>
+      <h1 class="landing-hero-title">
+        Onde o aprendizado acontece
+        <span class="landing-highlight">de verdade</span>
+      </h1>
+      <p class="landing-hero-description">
+        Conectamos instrutores apaixonados com alunos curiosos para cursos presenciais.
+        Porque algumas coisas a gente só aprende olhando nos olhos.
+      </p>
+      <div class="landing-hero-ctas">
+        <%= link_to "Criar meu curso", "#cta", class: "landing-btn landing-btn-primary" %>
+        <%= link_to "Explorar cursos", "#personas", class: "landing-btn landing-btn-secondary" %>
+      </div>
+    </div>
+    <div class="landing-hero-visual">
+      <div class="landing-visual-card landing-card-1">
+        <div class="landing-card-icon">🎨</div>
+        <div class="landing-card-title">Cerâmica Livre</div>
+        <div class="landing-card-text">Aprenda a trabalhar com argila em 4 encontros práticos</div>
+      </div>
+      <div class="landing-visual-card landing-card-2">
+        <div class="landing-card-icon landing-icon-ochre">📸</div>
+        <div class="landing-card-title">Fotografia Analógica</div>
+        <div class="landing-card-text">Do filme à ampliação: processo completo em laboratório</div>
+      </div>
+      <div class="landing-visual-card landing-card-3">
+        <div class="landing-card-icon">✍️</div>
+        <div class="landing-card-title">Escrita Criativa</div>
+        <div class="landing-card-text">Mutirão de projetos e feedback em grupo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="landing-problem-section landing-scroll-reveal">
+    <div class="landing-section-container">
+      <div class="landing-section-tag">O problema</div>
+      <h2 class="landing-section-title">Cursos online prometem tudo.<br>Entregam quase nada.</h2>
+      <div class="landing-problems-grid">
+        <div class="landing-problem-card">
+          <span class="landing-problem-emoji">💻</span>
+          <h3>Saturação digital</h3>
+          <p>Cansou de cursos online caros que só entregam promessas? Você não está sozinho. A tela não substitui o contato real.</p>
+        </div>
+        <div class="landing-problem-card">
+          <span class="landing-problem-emoji">🎯</span>
+          <h3>Dificuldade em formar turmas</h3>
+          <p>Você tem conhecimento para compartilhar, mas não tem rede ou tempo para divulgar. Suas turmas ficam vazias.</p>
+        </div>
+        <div class="landing-problem-card">
+          <span class="landing-problem-emoji">💸</span>
+          <h3>Equipamentos caros</h3>
+          <p>Quer experimentar cerâmica, mas o torno custa uma fortuna? Você não precisa comprar tudo para começar a criar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="landing-solution-section landing-scroll-reveal">
+    <div class="landing-solution-content">
+      <div class="landing-section-tag landing-tag-clay">A solução</div>
+      <h2 class="landing-section-title">Uma plataforma feita<br>para encontros reais</h2>
+      <p class="landing-solution-description">
+        Forja é o lugar onde instrutores encontram alunos e vice-versa.
+        Aqui você divulga seu curso, encontra espaços para aulas, e conecta com pessoas
+        que querem aprender à moda antiga: com as mãos na massa.
+      </p>
+      <div class="landing-features-grid">
+        <div class="landing-feature-card">
+          <div class="landing-feature-icon">👥</div>
+          <h3>Conecte-se</h3>
+          <p>Forme sua comunidade de instrutores e alunos. Siga perfis, curta projetos, crie network.</p>
+        </div>
+        <div class="landing-feature-card">
+          <div class="landing-feature-icon">📚</div>
+          <h3>Divulgue cursos</h3>
+          <p>Cadastre seu curso em minutos e alcance pessoas que realmente querem aprender.</p>
+        </div>
+        <div class="landing-feature-card">
+          <div class="landing-feature-icon">🏠</div>
+          <h3>Encontre espaços</h3>
+          <p>Não tem onde dar aula? Acesse nosso repositório de espaços disponíveis para locação.</p>
+        </div>
+        <div class="landing-feature-card">
+          <div class="landing-feature-icon">✨</div>
+          <h3>Experimente sem medo</h3>
+          <p>Quer testar uma técnica antes de investir em equipamentos? Participe de cursos práticos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Personas Section -->
+  <section id="personas" class="landing-personas-section landing-scroll-reveal">
+    <div class="landing-personas-container">
+      <h2 class="landing-section-title landing-text-center">Feito para você</h2>
+      <div class="landing-personas-grid">
+        <div class="landing-persona-card landing-persona-instrutor">
+          <div class="landing-persona-header">
+            <div class="landing-persona-label">Para instrutores</div>
+            <h3 class="landing-persona-title">Ensine o que<br>você domina</h3>
+          </div>
+          <div class="landing-persona-needs">
+            <ul>
+              <li>Divulgue seus cursos para quem realmente quer aprender</li>
+              <li>Forme turmas sem precisar de uma grande rede</li>
+              <li>Encontre espaços para receber seus alunos</li>
+              <li>Construa sua reputação e portfólio</li>
+              <li>Foque no que importa: ensinar</li>
+            </ul>
+          </div>
+        </div>
+        <div class="landing-persona-card landing-persona-aluno">
+          <div class="landing-persona-header">
+            <div class="landing-persona-label">Para alunos</div>
+            <h3 class="landing-persona-title">Aprenda fazendo,<br>não assistindo</h3>
+          </div>
+          <div class="landing-persona-needs">
+            <ul>
+              <li>Descubra cursos presenciais na sua cidade</li>
+              <li>Experimente técnicas sem comprar equipamentos caros</li>
+              <li>Tire dúvidas pessoalmente com quem entende</li>
+              <li>Pratique em grupo e faça network</li>
+              <li>Aprenda à moda antiga: com as mãos na massa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="cta" class="landing-cta-section landing-scroll-reveal">
+    <div class="landing-cta-content">
+      <h2 class="landing-section-title">Pronto para começar?</h2>
+      <p>Junte-se à comunidade de pessoas que acreditam no poder do aprendizado presencial.</p>
+      <div class="landing-cta-buttons">
+        <%= link_to "Criar conta gratuita", new_user_registration_path, class: "landing-btn landing-btn-light" %>
+        <%= link_to "Ver como funciona", "#personas", class: "landing-btn landing-btn-outline" %>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <div class="landing-footer-content">
+      <div class="landing-footer-logo">Forja</div>
+      <div class="landing-footer-text">
+        Onde o aprendizado acontece de verdade — <%= Time.current.year %>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<%= javascript_tag do %>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Scroll reveal animation
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('landing-revealed');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.landing-scroll-reveal').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Parallax effect on hero visual cards
+  document.addEventListener('mousemove', (e) => {
+    const cards = document.querySelectorAll('.landing-visual-card');
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+
+    cards.forEach((card, index) => {
+      const speed = (index + 1) * 10;
+      const xMove = (x - 0.5) * speed;
+      const yMove = (y - 0.5) * speed;
+      card.style.transform = `translate(${xMove}px, ${yMove}px)`;
+    });
+  });
+<% end %>

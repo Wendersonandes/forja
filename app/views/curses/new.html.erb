@@ -1,0 +1,28 @@
+<% content_for :title, "New curse" %>
+<div class="min-h-screen grid grid-cols-2 gap-4">
+  <div class="...">
+   <h1 class="font-bold text-4xl">New curse</h1>
+
+    <%= render "form", curse: @curse %>
+
+    <%= link_to "Back to curses", curses_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+  </div>
+
+  <div class="...">
+    <div id="curse_preview">
+     <div class="items-center space-x-3 p-3 bg-white dark:bg-neutral-800 border border-black/10 dark:border-white/10 rounded-xl shadow-xs overflow-hidden">
+        <!-- Avatar -->
+        <div class="h-10 w-10 bg-neutral-200 dark:bg-neutral-700 rounded-full flex-shrink-0"></div>
+
+        <!-- Content -->
+        <div class="flex-1 min-w-0">
+          <div class="h-4 bg-neutral-200 dark:bg-neutral-700 rounded w-3/4 mb-2"></div>
+          <div class="h-3 bg-neutral-200 dark:bg-neutral-700 rounded w-1/2"></div>
+        </div>
+
+        <!-- Action -->
+        <div class="h-6 w-6 bg-neutral-200 dark:bg-neutral-700 rounded flex-shrink-0"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<%= form_with(model: curse, class: "contents", data: { controller: "form-preview", action: "input->form-preview#remotesubmit trix-change->form-preview#remotesubmit" }) do |form| %>
+  <% if curse.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+      <h2><%= pluralize(curse.errors.count, "error") %> prohibited this curse from being saved:</h2>
+
+      <ul class="list-disc ml-6">
+        <% curse.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": curse.errors[:title].none?, "border-red-400 focus:outline-red-600": curse.errors[:title].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :about %>
+    <%= form.rich_textarea :about, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": curse.errors[:about].none?, "border-red-400 focus:outline-red-600": curse.errors[:about].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :start_date %>
+    <%= form.datetime_field :start_date, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": curse.errors[:start_date].none?, "border-red-400 focus:outline-red-600": curse.errors[:start_date].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": curse.errors[:address].none?, "border-red-400 focus:outline-red-600": curse.errors[:address].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :city %>
+    <%= form.text_field :city, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": curse.errors[:city].none?, "border-red-400 focus:outline-red-600": curse.errors[:city].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :state %>
+    <%= form.text_field :state, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": curse.errors[:state].none?, "border-red-400 focus:outline-red-600": curse.errors[:state].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :cover %>
+    <%= form.file_field :cover, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": curse.errors[:cover].none?, "border-red-400 focus:outline-red-600": curse.errors[:cover].any?}] %>
+  </div>
+
+  <div class="inline">
+    <%= form.button "Preview Curse", formaction: preview_curses_path, name: "_method", value: "post", data: { form_preview_target: "submitbtn" } %>
+    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

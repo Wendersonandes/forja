@@ -1,0 +1,30 @@
+<div id="<%= dom_id curse %>" class="w-full sm:w-auto my-5 space-y-5">
+  <div>
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= curse.title %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">About:</strong>
+    <%= curse.about %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Start date:</strong>
+    <%= curse.start_date %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Address:</strong>
+    <%= curse.address %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">City:</strong>
+    <%= curse.city %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">State:</strong>
+    <%= curse.state %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Cover:</strong>
+    <%= link_to curse.cover.filename, curse.cover, class: "text-gray-700 underline hover:no-underline" if curse.cover.attached? %>
+  </div>
+</div>

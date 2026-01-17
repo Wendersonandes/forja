@@ -1,0 +1,6 @@
+<%= turbo_stream.update "curse_preview" do %>
+  <%= @preview.title %>
+  <%= @preview.about %>
+  <%= @preview.valid? %>
+  <%= @preview.errors.full_messages %>
+<% end %>

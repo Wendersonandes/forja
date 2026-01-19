@@ -3,13 +3,13 @@
   <div>
     <h1 class="font-bold text-4xl">Divulgue seu curso</h1>
   </div>
-<div class="min-h-screen grid grid-cols-2 gap-4">
-  <div class="...">
+<div class="min-h-screen grid grid-cols-12 gap-4">
+  <div class="col-span-7">
     <%= render "form", curse: @curse %>
     <%= link_to "Back to curses", curses_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
   </div>
 
-  <div class="...">
+  <div class="col-span-5">
     <div id="curse_preview" class="my-5">
       <div class="bg-white border border-black/10 rounded-xl shadow-xs overflow-hidden">
         <div class="px-4 py-5 sm:p-6">

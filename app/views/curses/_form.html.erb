@@ -13,11 +13,14 @@
 
   <div class="my-5">
     <%= form.label :title %>
-    <%= form.text_field :title, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": curse.errors[:title].none?, "border-red-400 focus:outline-red-600": curse.errors[:title].any?}] %>
+    <%= form.text_field :title, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full form-control", {"border-gray-400 focus:outline-blue-600": curse.errors[:title].none?, "border-red-400 focus:outline-red-600": curse.errors[:title].any?}] %>
   </div>
   <div class="my-5">
     <%= form.label :about %>
     <%= form.rich_textarea :about, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": curse.errors[:about].none?, "border-red-400 focus:outline-red-600": curse.errors[:about].any?}] %>
+      <div>
+        Acrescente aqui uma apresentação do curso, o que será ensinado e a duração do mesmo.
+      </div>
   </div>
   <div class="grid grid-cols-2 gap-4">
     <div class="my-5">
@@ -48,6 +51,6 @@
   </div>
   <div class="inline">
     <%= form.button "Preview Curse", formaction: preview_curses_path, name: "_method", value: "post", data: { form_preview_target: "submitbtn" } %>
-    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit "Publicar meu Curso", class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>

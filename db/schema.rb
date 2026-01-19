@@ -53,12 +53,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_17_190843) do
   end
 
   create_table "curses", force: :cascade do |t|
-    t.string "address"
-    t.string "city"
+    t.string "address", null: false
+    t.string "apply_url", null: false
+    t.string "city", null: false
     t.datetime "created_at", null: false
-    t.datetime "start_date"
-    t.string "state"
-    t.string "title"
+    t.integer "curse_type", default: 0, null: false
+    t.datetime "end_date", null: false
+    t.datetime "start_date", null: false
+    t.string "state", null: false
+    t.string "title", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_curses_on_title"
   end

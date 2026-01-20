@@ -27,25 +27,31 @@
         Porque algumas coisas a gente só aprende olhando nos olhos.
       </p>
       <div class="landing-hero-ctas">
-        <%= link_to "Criar meu curso", "#cta", class: "landing-btn landing-btn-primary" %>
+        <%= link_to "Criar meu curso", curse_publish_path, class: "landing-btn landing-btn-primary" %>
         <%= link_to "Explorar cursos", "#personas", class: "landing-btn landing-btn-secondary" %>
       </div>
     </div>
     <div class="landing-hero-visual">
       <div class="landing-visual-card landing-card-1">
         <div class="landing-card-icon">🎨</div>
-        <div class="landing-card-title">Cerâmica Livre</div>
-        <div class="landing-card-text">Aprenda a trabalhar com argila em 4 encontros práticos</div>
+        <div class="landing-card-content">
+          <div class="landing-card-title">Cerâmica Livre</div>
+          <div class="landing-card-text">Aprenda a trabalhar com argila em 4 encontros práticos</div>
+        </div>
       </div>
       <div class="landing-visual-card landing-card-2">
-        <div class="landing-card-icon landing-icon-ochre">📸</div>
-        <div class="landing-card-title">Fotografia Analógica</div>
-        <div class="landing-card-text">Do filme à ampliação: processo completo em laboratório</div>
+        <div class="landing-card-icon">📸</div>
+        <div class="landing-card-content">
+          <div class="landing-card-title">Fotografia Analógica</div>
+          <div class="landing-card-text">Do filme à ampliação: processo completo em laboratório</div>
+        </div>
       </div>
       <div class="landing-visual-card landing-card-3">
         <div class="landing-card-icon">✍️</div>
-        <div class="landing-card-title">Escrita Criativa</div>
-        <div class="landing-card-text">Mutirão de projetos e feedback em grupo</div>
+        <div class="landing-card-content">
+          <div class="landing-card-title">Escrita Criativa</div>
+          <div class="landing-card-text">Mutirão de projetos e feedback em grupo</div>
+        </div>
       </div>
     </div>
   </section>

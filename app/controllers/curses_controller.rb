@@ -72,6 +72,6 @@ class CursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def curse_params
-      params.expect(curse: [ :title, :about, :start_date, :address, :city, :state, :cover ])
+      params.expect(curse: [ :title, :about, :start_date, :end_date, :apply_url, :curse_type, :address, :city, :state, :cover ])
     end
 end

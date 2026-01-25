@@ -57,7 +57,10 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem "hotwire-spark"
+  #gem "hotwire-spark"
+  gem 'unsplash'
+  #A library for generating fake data such as names, addresses, and phone numbers.
+  gem 'faker'
 end
 
 group :test do

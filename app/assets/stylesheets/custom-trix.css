@@ -1,0 +1,11 @@
+trix-toolbar .trix-button-group--file-tools,
+trix-toolbar .trix-button--icon-code,
+trix-toolbar .trix-button--icon-link
+{
+  display: none;
+}
+
+
+trix-editor {
+  min-height: 12em; /* Adjust this value as needed to represent a certain number of "rows" */
+}

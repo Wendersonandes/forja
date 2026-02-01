@@ -62,7 +62,7 @@
     <%= form.label :apply_url %>
     <%= form.text_field :apply_url, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": curse.errors[:apply_url].none?, "border-red-400 focus:outline-red-600": curse.errors[:apply_url].any?}] %>
   </div>
-  <div class="inline">
+  <div class="fixed bottom-0 left-0 right-0">
     <%= form.button "Preview Curse", formaction: preview_curses_path, name: "_method", value: "post", data: { form_preview_target: "submitbtn" } %>
     <%= form.submit "Publicar meu Curso", class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
   </div>

@@ -52,10 +52,11 @@
             </div>
 
             <!-- About (Rich Text) -->
+            <!-- About (Rich Text) -->
             <div>
               <%= form.label :about, class: "block text-sm font-medium text-gray-700 mb-1" %>
               <div class="prose prose-sm max-w-none">
-                <%= form.rich_textarea :about, class: ["block w-full rounded-lg shadow-sm focus:ring-2 min-h-[150px]", {"border-gray-300 focus:border-blue-500 focus:ring-blue-500": @course.errors[:about].none?, "border-red-400 focus:border-red-500 focus:ring-red-500": @course.errors[:about].any?}], data: { form_preview_target: "aboutInput", action: "trix-change->form-preview#updateAbout" } %>
+              <%= form.rich_textarea :about, class: ["appearance-none block w-full rounded-sm border shadow-sm focus:ring-2 min-h-[150px]", {"border-gray-300 focus:border-blue-500 focus:ring-blue-500": @course.errors[:about].none?, "border-red-400 focus:border-red-500 focus:ring-red-500": @course.errors[:about].any?}], data: { form_preview_target: "aboutInput", action: "trix-change->form-preview#updateAbout" } %>
               </div>
               <p class="mt-2 text-xs text-gray-500">
                 Acrescente aqui uma apresentação do curso, o que será ensinado e a duração do mesmo.

@@ -5,7 +5,7 @@ class Course < ApplicationRecord
 
   SKILLS = %w[Pintura Gravura Fotografia Desenho Escultura Cerâmica Ilustração Graffiti]
 
-  validates :title, :address, :apply_url, :city, :course_type, :start_date, :end_date, :state, :skill_list, presence: true
+  validates :title, :about, :address, :apply_url, :city, :course_type, :start_date, :end_date, :state, :skill_list, presence: true
 
   acts_as_taggable_on :tags, :skills
 end

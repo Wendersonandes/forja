@@ -6,19 +6,19 @@ require 'open-uri'
 require 'ostruct'
 
 puts "Cleaning database..."
-Curse.destroy_all
+Course.destroy_all
 
 puts "Fetching Unsplash images..."
 # Search for 'art gallery' and get 10 photos
 photos = Unsplash::Photo.search("art gallery", 1, 10)
 
-puts "Creating Curses..."
+puts "Creating Courses..."
 10.times do |i|
   photo = photos[i] || photos.sample
 
   start_date = Faker::Date.forward(days: 30)
 
-  curse = Curse.create!(
+  course = Course.create!(
     title: Faker::Educator.course_name,
     about: Faker::Lorem.paragraphs(number: 3).join("\n\n"),
     address: Faker::Address.street_address,
@@ -26,21 +26,21 @@ puts "Creating Curses..."
     state: Faker::Address.state,
     start_date: start_date,
     end_date: Faker::Date.between(from: start_date, to: start_date + 60.days),
-    curse_type: Curse.curse_types.keys.sample,
+    course_type: Course.course_types.keys.sample,
     apply_url: Faker::Internet.url
   )
 
   if photo
-    puts "Attaching cover image for #{curse.title}..."
+    puts "Attaching cover image for #{course.title}..."
     begin
       file = URI.open(photo.urls.regular)
-      curse.cover.attach(io: file, filename: "cover_#{i}.jpg", content_type: 'image/jpeg')
+      course.cover.attach(io: file, filename: "cover_#{i}.jpg", content_type: 'image/jpeg')
     rescue => e
       puts "Failed to attach image: #{e.message}"
     end
   end
 
-  puts "Created Curse: #{curse.title}"
+  puts "Created Course: #{course.title}"
 end
 
-puts "Finished! Created #{Curse.count} curses."
+puts "Finished! Created #{Course.count} courses."

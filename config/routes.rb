@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :curses do
+  resources :courses do
     collection do
       post :preview
     end
   end
 
-  get "publicar" => "curses#new", as: :curse_publish
+  get "publicar" => "courses#new", as: :course_publish
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check

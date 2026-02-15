@@ -1,10 +1,10 @@
-<% content_for :title, @curse.title %>
+<% content_for :title, @course.title %>
 
 <div class="min-h-screen bg-gray-50 pb-12">
   <!-- Hero Section -->
   <div class="w-full h-96 relative bg-gray-800">
-    <% if @curse.cover.attached? %>
-      <%= image_tag @curse.cover, class: "w-full h-full object-cover opacity-60" %>
+    <% if @course.cover.attached? %>
+      <%= image_tag @course.cover, class: "w-full h-full object-cover opacity-60" %>
     <% else %>
       <div class="w-full h-full bg-gradient-to-br from-indigo-900 to-purple-800 opacity-80"></div>
     <% end %>
@@ -12,17 +12,17 @@
     <div class="absolute bottom-0 left-0 w-full p-8 md:p-12 bg-gradient-to-t from-gray-900/90 to-transparent">
         <div class="max-w-7xl mx-auto">
             <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-white uppercase bg-blue-600 rounded-full shadow-sm">
-                <%= @curse.curse_type&.humanize %>
+                <%= @course.course_type&.humanize %>
             </span>
             <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-2 drop-shadow-md">
-                <%= @curse.title %>
+                <%= @course.title %>
             </h1>
             <div class="flex items-center text-gray-200 text-sm md:text-base mt-2 font-medium">
                  <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <%= @curse.city %>, <%= @curse.state %>
+                  <%= @course.city %>, <%= @course.state %>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
         <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
             <h2 class="text-2xl font-bold text-gray-900 mb-6 border-b pb-4">About this Course</h2>
             <div class="prose prose-blue max-w-none text-gray-600 leading-relaxed">
-                <%= @curse.about %>
+                <%= @course.about %>
             </div>
         </div>
       </div>
@@ -51,21 +51,21 @@
                 <div>
                      <p class="text-xs text-gray-500 font-bold uppercase tracking-wide">Date</p>
                      <p class="text-gray-900 font-semibold mt-1">
-                        <%= @curse.start_date.strftime("%B %d, %Y") %> - <%= @curse.end_date.strftime("%B %d, %Y") %>
+                        <%= @course.start_date.strftime("%B %d, %Y") %> - <%= @course.end_date.strftime("%B %d, %Y") %>
                      </p>
                 </div>
                 
                  <div>
                      <p class="text-xs text-gray-500 font-bold uppercase tracking-wide">Location</p>
                      <p class="text-gray-900 font-semibold mt-1">
-                        <%= @curse.address %><br>
-                        <%= @curse.city %>, <%= @curse.state %>
+                        <%= @course.address %><br>
+                        <%= @course.city %>, <%= @course.state %>
                      </p>
                 </div>
                 
-                <% if @curse.apply_url.present? %>
+                <% if @course.apply_url.present? %>
                     <div class="pt-4">
-                        <%= link_to "Apply Now", @curse.apply_url, target: "_blank", class: "block w-full text-center py-3 px-4 border border-transparent rounded-lg shadow-md text-base font-bold text-white bg-blue-600 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200" %>
+                        <%= link_to "Apply Now", @course.apply_url, target: "_blank", class: "block w-full text-center py-3 px-4 border border-transparent rounded-lg shadow-md text-base font-bold text-white bg-blue-600 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200" %>
                     </div>
                 <% end %>
              </div>
@@ -75,9 +75,9 @@
         <div class="bg-gray-50 rounded-xl border border-gray-200 p-6">
             <h3 class="text-xs font-bold text-gray-500 mb-4 uppercase tracking-wider">Admin Actions</h3>
             <div class="flex flex-col space-y-3">
-                 <%= link_to "Edit Course", edit_curse_path(@curse), class: "text-center w-full px-4 py-2 bg-white border border-gray-300 rounded-md font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors shadow-sm" %>
-                 <%= link_to "Back to Catalog", curses_path, class: "text-center w-full px-4 py-2 bg-white border border-gray-300 rounded-md font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors shadow-sm" %>
-                 <%= button_to "Delete Course", @curse, method: :delete, form: { class: "w-full" }, class: "w-full px-4 py-2 bg-red-50 border border-red-200 rounded-md font-medium text-red-700 hover:bg-red-100 hover:text-red-800 transition-colors cursor-pointer shadow-sm", data: { turbo_confirm: "Are you sure?" } %>
+                 <%= link_to "Edit Course", edit_course_path(@course), class: "text-center w-full px-4 py-2 bg-white border border-gray-300 rounded-md font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors shadow-sm" %>
+                 <%= link_to "Back to Catalog", courses_path, class: "text-center w-full px-4 py-2 bg-white border border-gray-300 rounded-md font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors shadow-sm" %>
+                 <%= button_to "Delete Course", @course, method: :delete, form: { class: "w-full" }, class: "w-full px-4 py-2 bg-red-50 border border-red-200 rounded-md font-medium text-red-700 hover:bg-red-100 hover:text-red-800 transition-colors cursor-pointer shadow-sm", data: { turbo_confirm: "Are you sure?" } %>
             </div>
         </div>
       </div>

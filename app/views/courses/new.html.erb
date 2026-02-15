@@ -1,4 +1,4 @@
-<% content_for :title, "New curse" %>
+<% content_for :title, "New course" %>
 <div class="min-h-screen">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="mb-10">
@@ -14,8 +14,8 @@
       <!-- Form Section -->
       <div class="lg:col-span-7">
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
-          <%= form_with(model: @curse, class: "space-y-6") do |form| %>
-            <% if @curse.errors.any? %>
+          <%= form_with(model: @course, class: "space-y-6") do |form| %>
+            <% if @course.errors.any? %>
               <div id="error_explanation" class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-md animate-pulse">
                 <div class="flex">
                   <div class="flex-shrink-0">
@@ -25,11 +25,11 @@
                   </div>
                   <div class="ml-3">
                     <h3 class="text-sm font-medium text-red-800">
-                      <%= pluralize(@curse.errors.count, "error") %> prohibited this curse from being saved:
+                      <%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:
                     </h3>
                     <div class="mt-2 text-sm text-red-700">
                       <ul class="list-disc list-inside space-y-1">
-                        <% @curse.errors.each do |error| %>
+                        <% @course.errors.each do |error| %>
                           <li><%= error.full_message %></li>
                         <% end %>
                       </ul>
@@ -42,20 +42,20 @@
             <!-- Cover Image -->
             <div>
               <%= form.label :cover, class: "block text-sm font-medium text-gray-700 mb-1" %>
-              <%= form.file_field :cover, class: ["block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold transition-colors duration-200 cursor-pointer", {"file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100": @curse.errors[:cover].none?, "file:bg-red-50 file:text-red-700 hover:file:bg-red-100 ring-2 ring-red-500 rounded-lg": @curse.errors[:cover].any?}], data: { form_preview_target: "imageInput", action: "change->form-preview#previewImage" } %>
+              <%= form.file_field :cover, class: ["block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold transition-colors duration-200 cursor-pointer", {"file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100": @course.errors[:cover].none?, "file:bg-red-50 file:text-red-700 hover:file:bg-red-100 ring-2 ring-red-500 rounded-lg": @course.errors[:cover].any?}], data: { form_preview_target: "imageInput", action: "change->form-preview#previewImage" } %>
             </div>
 
             <!-- Title -->
             <div>
               <%= form.label :title, class: "block text-sm font-medium text-gray-700 mb-1" %>
-              <%= form.text_field :title, placeholder: "Ex: Introdução à Pintura", class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @curse.errors[:title].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @curse.errors[:title].any?}], data: { form_preview_target: "titleInput", action: "input->form-preview#updateTitle" } %>
+              <%= form.text_field :title, placeholder: "Ex: Introdução à Pintura", class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @course.errors[:title].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @course.errors[:title].any?}], data: { form_preview_target: "titleInput", action: "input->form-preview#updateTitle" } %>
             </div>
 
             <!-- About (Rich Text) -->
             <div>
               <%= form.label :about, class: "block text-sm font-medium text-gray-700 mb-1" %>
               <div class="prose prose-sm max-w-none">
-                <%= form.rich_textarea :about, class: ["block w-full rounded-lg shadow-sm focus:ring-2 min-h-[150px]", {"border-gray-300 focus:border-blue-500 focus:ring-blue-500": @curse.errors[:about].none?, "border-red-400 focus:border-red-500 focus:ring-red-500": @curse.errors[:about].any?}], data: { form_preview_target: "aboutInput", action: "trix-change->form-preview#updateAbout" } %>
+                <%= form.rich_textarea :about, class: ["block w-full rounded-lg shadow-sm focus:ring-2 min-h-[150px]", {"border-gray-300 focus:border-blue-500 focus:ring-blue-500": @course.errors[:about].none?, "border-red-400 focus:border-red-500 focus:ring-red-500": @course.errors[:about].any?}], data: { form_preview_target: "aboutInput", action: "trix-change->form-preview#updateAbout" } %>
               </div>
               <p class="mt-2 text-xs text-gray-500">
                 Acrescente aqui uma apresentação do curso, o que será ensinado e a duração do mesmo.
@@ -66,23 +66,23 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <%= form.label :start_date, class: "block text-sm font-medium text-gray-700 mb-1" %>
-                <%= form.datetime_field :start_date, class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @curse.errors[:start_date].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @curse.errors[:start_date].any?}] %>
+                <%= form.datetime_field :start_date, class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @course.errors[:start_date].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @course.errors[:start_date].any?}] %>
               </div>
 
               <div>
                 <%= form.label :end_date, class: "block text-sm font-medium text-gray-700 mb-1" %>
-                <%= form.datetime_field :end_date, class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @curse.errors[:end_date].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @curse.errors[:end_date].any?}] %>
+                <%= form.datetime_field :end_date, class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @course.errors[:end_date].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @course.errors[:end_date].any?}] %>
               </div>
             </div>
 
-            <!-- Curse Type (Custom Select) -->
+            <!-- Course Type (Custom Select) -->
             <div class="relative">
-              <%= form.label :curse_type, class: "block text-sm font-medium text-gray-700 mb-1" %>
+              <%= form.label :course_type, class: "block text-sm font-medium text-gray-700 mb-1" %>
               <div class="relative mt-1">
-                <%= form.select :curse_type, 
-                    options_for_select(Curse.curse_types.map {|key, value| [key.titleize, Curse.curse_types.key(value)]}, @curse.curse_type),
+                <%= form.select :course_type, 
+                    options_for_select(Course.course_types.map {|key, value| [key.titleize, Course.course_types.key(value)]}, @course.course_type),
                     {}, 
-                    { class: ["appearance-none block w-full px-4 py-3 rounded-lg border bg-white placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm pr-10", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @curse.errors[:curse_type].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @curse.errors[:curse_type].any?}], data: { form_preview_target: "typeInput", action: "change->form-preview#updateType" } } 
+                    { class: ["appearance-none block w-full px-4 py-3 rounded-lg border bg-white placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm pr-10", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @course.errors[:course_type].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @course.errors[:course_type].any?}], data: { form_preview_target: "typeInput", action: "change->form-preview#updateType" } } 
                 %>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
                   <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -95,19 +95,19 @@
             <!-- Address -->
             <div>
               <%= form.label :address, class: "block text-sm font-medium text-gray-700 mb-1" %>
-              <%= form.text_field :address, placeholder: "Endereço completo", class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @curse.errors[:address].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @curse.errors[:address].any?}] %>
+              <%= form.text_field :address, placeholder: "Endereço completo", class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @course.errors[:address].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @course.errors[:address].any?}] %>
             </div>
 
             <!-- City & State Group -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <%= form.label :city, class: "block text-sm font-medium text-gray-700 mb-1" %>
-                <%= form.text_field :city, placeholder: "Cidade", class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @curse.errors[:city].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @curse.errors[:city].any?}], data: { form_preview_target: "cityInput", action: "input->form-preview#updateCity" } %>
+                <%= form.text_field :city, placeholder: "Cidade", class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @course.errors[:city].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @course.errors[:city].any?}], data: { form_preview_target: "cityInput", action: "input->form-preview#updateCity" } %>
               </div>
 
               <div>
                 <%= form.label :state, class: "block text-sm font-medium text-gray-700 mb-1" %>
-                <%= form.text_field :state, placeholder: "Estado", class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @curse.errors[:state].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @curse.errors[:state].any?}], data: { form_preview_target: "stateInput", action: "input->form-preview#updateState" } %>
+                <%= form.text_field :state, placeholder: "Estado", class: ["appearance-none block w-full px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @course.errors[:state].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @course.errors[:state].any?}], data: { form_preview_target: "stateInput", action: "input->form-preview#updateState" } %>
               </div>
             </div>
 
@@ -118,7 +118,7 @@
                 <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                   <span class="text-gray-500 sm:text-sm">https://</span>
                 </div>
-                <%= form.text_field :apply_url, class: ["appearance-none block w-full pl-16 px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @curse.errors[:apply_url].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @curse.errors[:apply_url].any?}], placeholder: "www.exemplo.com" %>
+                <%= form.text_field :apply_url, class: ["appearance-none block w-full pl-16 px-4 py-3 rounded-lg border placeholder-gray-400 focus:outline-none focus:ring-2 transition duration-200 sm:text-sm", {"border-gray-300 focus:ring-blue-500 focus:border-transparent": @course.errors[:apply_url].none?, "border-red-400 focus:ring-red-600 focus:border-transparent": @course.errors[:apply_url].any?}], placeholder: "www.exemplo.com" %>
               </div>
             </div>
 

@@ -52,18 +52,18 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_17_190843) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "curses", force: :cascade do |t|
+  create_table "courses", force: :cascade do |t|
     t.string "address", null: false
     t.string "apply_url", null: false
     t.string "city", null: false
+    t.integer "course_type", default: 0, null: false
     t.datetime "created_at", null: false
-    t.integer "curse_type", default: 0, null: false
     t.datetime "end_date", null: false
     t.datetime "start_date", null: false
     t.string "state", null: false
     t.string "title", null: false
     t.datetime "updated_at", null: false
-    t.index ["title"], name: "index_curses_on_title"
+    t.index ["title"], name: "index_courses_on_title"
   end
 
   create_table "taggings", force: :cascade do |t|
